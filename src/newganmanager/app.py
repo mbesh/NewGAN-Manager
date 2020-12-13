@@ -18,6 +18,7 @@ class NewGANManager(toga.App):
         self.main_window.show()
     def calc(self, widget):
         self.output.text = "RUN1"
+        self.output._impl.rehint()
         yield 0.1
         time.sleep(3)
         self.output.text = "RUN2"
