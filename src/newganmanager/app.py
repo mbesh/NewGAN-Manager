@@ -19,10 +19,10 @@ class NewGANManager(toga.App):
     def calc(self, widget):
         self.output.text = "RUN1"
         self.output._impl.rehint()
-        yield 0.1
         time.sleep(3)
         self.output.text = "RUN2"
-        yield 0.1
+        self.output._impl.rehint()
+
 
 def main():
     return NewGANManager('Toga Demo', 'org.beeware.toga-demo')
