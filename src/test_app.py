@@ -13,17 +13,17 @@ def async_test(f):
 
 
 class Test_App(unittest.TestCase):
+    def setUp(self):
+        self.app = NewGANManager('Toga Demo', 'org.beeware.toga-demo')
+        self.app.startup()
+
     def test_calc(self):
-        app = NewGANManager('Toga Demo', 'org.beeware.toga-demo')
-        app.startup()
-        res = [i for i in app.calc(None)]
+        res = [i for i in self.app.calc(None)]
         self.assertEqual(res, [1, 2])
-        self.assertEqual("RUN2", app.output.text)
+        self.assertEqual("RUN2", self.app.output.text)
 
     @async_test
     def test_button_press(self):
-        self.app = NewGANManager('Toga Demo', 'org.beeware.toga-demo')
-        self.app.startup()
         self.app.btn.on_press(self.app.btn)
         print(self.app.btn.on_press)
         print(self.app.btn.on_press._raw)
