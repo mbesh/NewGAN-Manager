@@ -5,6 +5,7 @@ import toga
 import time
 from toga.style.pack import Pack
 
+
 class NewGANManager(toga.App):
 
     def startup(self):
@@ -16,12 +17,12 @@ class NewGANManager(toga.App):
         self.main_box.add(self.btn)
         self.main_window.content = self.main_box
         self.main_window.show()
+
     def calc(self, widget):
         self.output.text = "RUN1"
-        self.output._impl.rehint()
-        time.sleep(3)
+        yield 1
         self.output.text = "RUN2"
-        self.output._impl.rehint()
+        yield 2
 
 
 def main():
